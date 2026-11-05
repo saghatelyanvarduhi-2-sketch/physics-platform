@@ -3,253 +3,519 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Հետաքրքիր Ֆիզիկա — Կյանքեր Փրկող Օրենքներ</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <title>Ֆիզիկան Առօրյայում և Արտակարգ Իրավիճակներում - Smart Eco-Campus</title>
     <style>
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
         body {
-            background: #0f172a;
-            color: #f8fafc;
+            background: #f4f6f9;
+            color: #1e293b;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
+            padding: 25px;
         }
-
-        /* Nav menu */
-        nav {
-            width: 100%;
-            background: #1e293b;
-            padding: 15px 20px;
-            display: flex;
-            gap: 20px;
-            align-items: center;
-            justify-content: center;
-            border-bottom: 2px solid #38bdf8;
-            flex-wrap: wrap;
-        }
-
-        nav a {
-            color: #f8fafc;
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            background: #0284c7;
+            color: white;
             text-decoration: none;
+            border-radius: 8px;
             font-weight: 600;
-            font-size: 0.95rem;
-            transition: 0.2s;
-            padding: 6px 12px;
-            border-radius: 6px;
+            transition: background 0.2s;
         }
-
-        nav a:hover {
-            background: #334155;
-            color: #38bdf8;
+        .back-btn:hover {
+            background: #0369a1;
         }
-
-        .header-title {
+        .header {
             text-align: center;
-            padding: 40px 20px 20px;
+            margin-bottom: 30px;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
         }
-
-        .header-title h1 {
-            font-size: 2.2rem;
-            background: linear-gradient(90deg, #f59e0b, #ef4444);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .header h1 {
+            font-size: 2.3rem;
+            color: #0284c7;
             margin-bottom: 10px;
         }
-
-        .header-title p {
-            color: #94a3b8;
+        .header p {
+            color: #64748b;
             font-size: 1.1rem;
         }
 
-        .container {
-            max-width: 1100px;
-            margin: 0 auto 50px;
-            padding: 0 20px;
+        .accordion-btn {
+            width: 100%;
+            background: #ffffff;
+            color: #0284c7;
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-align: left;
+            padding: 18px 25px;
+            border: 2px solid #e2e8f0;
+            border-radius: 14px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            transition: background 0.2s, border-color 0.2s;
+        }
+        .accordion-btn:hover {
+            background: #f0f9ff;
+            border-color: #0284c7;
+        }
+        .accordion-btn.active {
+            border-color: #0284c7;
+            background: #e0f2fe;
+            border-radius: 14px 14px 0 0;
+        }
+        .arrow-icon {
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+        .accordion-btn.active .arrow-icon {
+            transform: rotate(180deg);
         }
 
-        .facts-grid {
+        .accordion-content {
+            display: none;
+            background: #ffffff;
+            padding: 25px;
+            border: 2px solid #0284c7;
+            border-top: none;
+            border-radius: 0 0 14px 14px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
-            margin-top: 20px;
+            gap: 22px;
         }
 
         .fact-card {
-            background: #1e293b;
-            border: 1px solid #334155;
-            border-radius: 16px;
-            padding: 25px;
+            background: #f8fafc;
+            border-radius: 14px;
+            padding: 22px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            border: 1px solid #e2e8f0;
+            transition: transform 0.25s, box-shadow 0.25s;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-            transition: transform 0.3s, border-color 0.3s;
         }
-
         .fact-card:hover {
-            transform: translateY(-5px);
-            border-color: #f59e0b;
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(2, 132, 199, 0.15);
+            border-color: #38bdf8;
+            background: #ffffff;
         }
 
-        .card-tag {
-            display: inline-block;
-            background: #334155;
-            color: #f59e0b;
-            font-size: 0.8rem;
-            font-weight: bold;
-            padding: 4px 10px;
-            border-radius: 12px;
-            margin-bottom: 15px;
-            width: fit-content;
-        }
-
-        .fact-card h3 {
-            font-size: 1.25rem;
-            color: #f8fafc;
+        .card-icon {
+            font-size: 2.2rem;
             margin-bottom: 12px;
         }
-
-        .fact-card p {
-            color: #94a3b8;
-            font-size: 0.95rem;
+        .card-title {
+            font-size: 1.2rem;
+            color: #0369a1;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        .card-text {
+            color: #334155;
             line-height: 1.6;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .formula-box {
+            background: #f0f9ff;
+            border-left: 4px solid #0284c7;
+            padding: 12px 15px;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.88rem;
+            color: #0369a1;
+            font-weight: 500;
             margin-bottom: 15px;
         }
 
-        .explanation-box {
-            display: none;
-            background: #0f172a;
-            border-left: 4px solid #f59e0b;
-            padding: 12px;
-            border-radius: 6px;
-            margin-top: 10px;
-            font-size: 0.9rem;
-            color: #e2e8f0;
-        }
-
-        .toggle-btn {
-            background: #2563eb;
-            color: white;
+        .reveal-btn {
+            background: #e0f2fe;
+            color: #0369a1;
             border: none;
-            padding: 10px 15px;
-            border-radius: 8px;
-            font-weight: 600;
+            padding: 8px 14px;
+            border-radius: 6px;
             cursor: pointer;
-            transition: 0.2s;
-            margin-top: 10px;
-        }
-
-        .toggle-btn:hover {
-            background: #1d4ed8;
-        }
-
-        footer {
-            margin-top: auto;
-            text-align: center;
-            padding: 20px;
-            border-top: 1px solid #334155;
-            color: #64748b;
+            font-weight: 600;
             font-size: 0.85rem;
+            transition: background 0.2s;
+            width: 100%;
+            text-align: left;
+        }
+        .reveal-btn:hover {
+            background: #bae6fd;
+        }
+        .hidden-content {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            background: #fff7ed;
+            border-left: 3px solid #f97316;
+            border-radius: 6px;
+            font-size: 0.88rem;
+            color: #9a3412;
+        }
+
+        .faq-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 18px;
+        }
+        .faq-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-left: 4px solid #fbbf24;
+            border-radius: 12px;
+            padding: 18px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            transition: transform 0.2s;
+        }
+        .faq-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(251, 191, 36, 0.2);
+            background: #ffffff;
+        }
+        .faq-question {
+            color: #b45309;
+            font-weight: 700;
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+        .faq-answer {
+            color: #475569;
+            font-size: 0.92rem;
+            line-height: 1.5;
         }
     </style>
 </head>
 <body>
 
-    <!-- NAVIGATION BAR -->
-    <nav>
-        <a href="index.html">🏠 Գլխավոր</a>
-        <a href="topics.html">📚 Թեմաներ</a>
-        <a href="kinematics.html">🏎️ Կինեմատիկա</a>
-        <a href="mechanics.html">⚙️ Մեխանիկա</a>
-        <a href="game.html" style="color: #f59e0b;">🎮 Խաղ (Միլիոնատեր)</a>
-        <a href="agtech.html" style="color: #4ade80;">🌱 Smart AgTech</a>
-        <a href="facts.html" style="color: #ef4444; font-weight: bold;">💡 Հետաքրքիր Փաստեր</a>
-    </nav>
+    <a href="menu.html" class="back-btn">⬅ Վերադառնալ Մենյու</a>
 
-    <div class="header-title">
-        <h1>💡 Ֆիզիկան Առօրյայում և Արտակարգ Իրավիճակներում</h1>
-        <p>Սովորեք ֆիզիկայի օրենքները, որոնք կարող են փրկել կյանքեր կամ բացատրել անհավանական թվացող երևույթները։</p>
+    <div class="header">
+        <h1>🛡️ Ֆիզիկան Առօրյայում և Արտակարգ Իրավիճակներում</h1>
+        <p>Սեղմեք բաժինների վրա՝ բացելու կամ փակելու համար</p>
     </div>
 
-    <div class="container">
-        <div class="facts-grid">
-
-            <!-- Card 1: Electric Chair Meme -->
+    <!-- ԲԼՈԿ 1: ԱՐՏԱԿԱՐԳ ԻՐԱՎԻՃԱԿՆԵՐ -->
+    <button class="accordion-btn" onclick="toggleMainSection('main_sec1', this)">
+        <span>🚨 1. Արտակարգ Իրավիճակներ (Կյանքի Փրկության Ֆիզիկա)</span>
+        <span class="arrow-icon">▼</span>
+    </button>
+    
+    <div id="main_sec1" class="accordion-content">
+        <div class="container">
             <div class="fact-card">
                 <div>
-                    <span class="card-tag">⚡ Էլեկտրականություն</span>
-                    <h3>Էլեկտրական Շղթա և Ռուբիլնիկ</h3>
-                    <p><strong>Իրավիճակ.</strong> Ինչո՞ւ է նկարում մեղադրյալը ոտքով դիպչում բանտապահի ոտքին, իսկ վերջինիս ձեռքին մետաղական բանալիներ են։</p>
+                    <div class="card-icon">⚡</div>
+                    <div class="card-title">Էլեկտրական Շղթա և Քայլային Լարում</div>
+                    <div class="card-text">
+                        Եթե էլեկտրահարված մարդուն դիպչի մեկ ուրիշը, հոսանքն անցնում է երկրորդ մարդու միջով դեպի հող: Բարձր լարման լարերից հեռանալիս պետք է ցատկել զույգ ոտքերով:
+                    </div>
+                    <div class="formula-box">
+                        • Օհմի օրենք: I = U / R<br>
+                        • Քայլային լարում: U_step = U_1 - U_2
+                    </div>
                 </div>
-                <button class="toggle-btn" onclick="toggleFact('exp-1')">🔍 Բացատրել Ֆիզիկան</button>
-                <div class="explanation-box" id="exp-1">
-                    <strong>💡 Ֆիզիկական Օրենքը.</strong> Փակ էլեկտրական շղթա։<br><br>
-                    Երբ բանտապահը միացնի անջատիչը, հոսանքը կանցնի ոչ միայն աթոռով, այլև հաղորդիչ մարմինների (մեղադրյալ $\rightarrow$ բանտապահ $\rightarrow$ մետաղական բանալիներ) միջոցով՝ փակելով շղթան դեպի գետին։
+                <button class="reveal-btn" onclick="toggleSecret('sec1')">💡 Ի՞նչ անել արտակարգ պահին ▼</button>
+                <div id="sec1" class="hidden-content">
+                    <b>Կանոն:</b> Չդիպչե՛լ մարդուն բաց ձեռքերով: Օգտագործել չոր փայտ կամ ցատկել զույգ ոտքերով՝ ոտնաթաթերը միմյանց սեղմած:
                 </div>
             </div>
 
-            <!-- Card 2: Sinking Car -->
             <div class="fact-card">
                 <div>
-                    <span class="card-tag">💧 Հիդրոստատիկա</span>
-                    <h3>Ինչպե՞ս դուրս գալ ջրասույզ մեքենայից</h3>
-                    <p><strong>Իրավիճակ.</strong> Մեքենան ընկել է ջուրը, և դուռը հնարավոր չէ բացել ներսից։ Ի՞նչ անել։</p>
+                    <div class="card-icon">🚗</div>
+                    <div class="card-title">Ջրասույզ Մեքենա և Հիդրոստատիկ Ճնշում</div>
+                    <div class="card-text">
+                        Ջրում հայտնված մեքենայի դուռը սկզբում բացելն անհնար է դուրսի ջրի հսկայական ճնշման պատճառով: Դուռը բացվում է միայն այն ժամանակ, երբ salon-ը լցվում է ջրով:
+                    </div>
+                    <div class="formula-box">
+                        • Հիդրոստատիկ ճնշում: P = ρ · g · h<br>
+                        • Ճնշման ուժ: F = P · S
+                    </div>
                 </div>
-                <button class="toggle-btn" onclick="toggleFact('exp-2')">🔍 Բացատրել Ֆիզիկան</button>
-                <div class="explanation-box" id="exp-2">
-                    <strong>💡 Ֆիզիկական Օրենքը.</strong> Հիդրոստատիկ Ճնշում ($P = \rho g h$)։<br><br>
-                    Դրսի ջրի ճնշումը հսկայական է։ Պետք է սպասել, մինչև ջուրը լցվի մեքենայի սալոնի մեծ մասը․ ներսի և դրսի ճնշումները կհավասարվեն, և դուռը հեշտությամբ կբացվի։
+                <button class="reveal-btn" onclick="toggleSecret('sec2')">💡 Ի՞նչ անել արտակարգ պահին ▼</button>
+                <div id="sec2" class="hidden-content">
+                    <b>Կանոն:</b> Էներգիա մի՛ ծախսեք դուռը հրելու վրա: Անմիջապես կոտրեք կողային ապակին գլխակալի (headrest) երկաթյա ծայրով:
                 </div>
             </div>
 
-            <!-- Card 3: Ice Pressure -->
             <div class="fact-card">
                 <div>
-                    <span class="card-tag">❄️ Մեխանիկա</span>
-                    <h3>Կոտրվող սառույցը ոտքերի տակ</h3>
-                    <p><strong>Իրավիճակ.</strong> Քայլում եք լճի սառույցի վրայով և զգում եք, որ այն սկսում է ճաքել։</p>
+                    <div class="card-icon">🛡️</div>
+                    <div class="card-title">Իներցիան և Անվտանգության Ամրագոտին</div>
+                    <div class="card-text">
+                        Կտրուկ արգելակման պահին մեքենան կանգ է առնում, բայց մարդու մարմինը շարունակում է շարժվել առաջ նույն արագությամբ (Նյուտոնի 1-ին օրենք):
+                    </div>
+                    <div class="formula-box">
+                        • Նյուտոնի I օրենք (Իներցիա)<br>
+                        • Իմպուլսի փոփոխություն: F · Δt = m · Δv
+                    </div>
                 </div>
-                <button class="toggle-btn" onclick="toggleFact('exp-3')">🔍 Բացատրել Ֆիզիկան</button>
-                <div class="explanation-box" id="exp-3">
-                    <strong>💡 Ֆիզիկական Օրենքը.</strong> Ճնշում ($P = F / S$)։<br><br>
-                    Անմիջապես պառկեք փորի վրա։ Մակերեսը ($S$) կմեծանա տասնյակ անգամ, ճնշումը ($P$) կտրուկ կնվազի, և սառույցը կդադարի կոտրվել։
+                <button class="reveal-btn" onclick="toggleSecret('sec3')">💡 Ի՞նչ անել արտակարգ պահին ▼</button>
+                <div id="sec3" class="hidden-content">
+                    <b>Կանոն:</b> Ամրագոտին երկարացնում է կանգ առնելու ժամանակը (Δt), ինչի շնորհիվ մարմնի վրա ազդող հարվածային ուժը (F) կտրուկ նվազում է:
                 </div>
             </div>
 
-            <!-- Card 4: Step Voltage -->
             <div class="fact-card">
                 <div>
-                    <span class="card-tag">⚡ Էլեկտրականություն</span>
-                    <h3>Գետնին ընկած բարձր լարման լարը</h3>
-                    <p><strong>Իրավիճակ.</strong> Ձեզանից մի քանի մետր հեռավորության վրա գետնին է ընկել բարձր լարման էլեկտրական լար։</p>
+                    <div class="card-icon">🔥</div>
+                    <div class="card-title">Թթվածնի Անկումը և Հրդեհի Ֆիզիկան</div>
+                    <div class="card-text">
+                        Փակ սենյակում հրդեհի ժամանակ տաք օդն ու թունավոր գազերը բարձրանում են վերև (կոնվեկցիա), իսկ մաքուր օդը մնում է հատակին մոտ:
+                    </div>
+                    <div class="formula-box">
+                        • Կոնվեկցիա (Ջերմափոխանակություն)<br>
+                        • Գազի խտության նվազում տաքանալիս
+                    </div>
                 </div>
-                <button class="toggle-btn" onclick="toggleFact('exp-4')">🔍 Բացատրել Ֆիզիկան</button>
-                <div class="explanation-box" id="exp-4">
-                    <strong>💡 Ֆիզիկական Օրենքը.</strong> Քայլային Լարում (Step Voltage)։<br><br>
-                    Հեռացեք ոտքերը իրար կպցրած (սահեցնելով) կամ 1 ոտքի վրա ցատկելով։ Ոտնաթաթերի միջև հեռավորությունը 0 է $\rightarrow$ պոտենցիալների տարբերությունը 0 է $\rightarrow$ հոսանք չի անցնի մարմնով։
+                <button class="reveal-btn" onclick="toggleSecret('sec4')">💡 Ի՞նչ անել արտակարգ պահին ▼</button>
+                <div id="sec4" class="hidden-content">
+                    <b>Կանոն:</b> Շնչեք թաց թաշկինակով և սողալով շարժվեք դեպի ելքը՝ հատակին հնարավորինս մոտ:
                 </div>
             </div>
 
+            <div class="fact-card">
+                <div>
+                    <div class="card-icon">🌊</div>
+                    <div class="card-title">Հետադարձ Հոսանք (Rip Current)</div>
+                    <div class="card-text">
+                        Ծովափին առաջացող ուժեղ հետադարձ հոսանքը մարդուն արագ քաշում է դեպի բաց ծով: Հոսանքին հակառակ լողալը սպառում է ուժերը:
+                    </div>
+                    <div class="formula-box">
+                        • Հեղուկների դինամիկա (Բերնուլիի օրենք)<br>
+                        • Վեկտորական արագությունների գումարում
+                    </div>
+                </div>
+                <button class="reveal-btn" onclick="toggleSecret('sec_rip')">💡 Ի՞նչ անել արտակարգ պահին ▼</button>
+                <div id="sec_rip" class="hidden-content">
+                    <b>Կանոն:</b> Երբեք մի՛ լողացեք հոսանքին հակառակ (դեպի ափ): Լողացեք ափին ԶՈՒԳԱՀԵՌ (կողք), մինչև դուրս գաք նեղ հոսանքի գոտուց, ապա նոր թեքվեք դեպի ափ:
+                </div>
+            </div>
+
+            <div class="fact-card">
+                <div>
+                    <div class="card-icon">🌩️</div>
+                    <div class="card-title">Կայծակ և Ֆարադեյի Վանդակ</div>
+                    <div class="card-text">
+                        Կայծակնային փոթորկի ժամանակ փակ մետաղյա մեքենայի ներսում գտնվող մարդն ամբողջովին պաշտպանված է էլեկտրական հարվածից:
+                    </div>
+                    <div class="formula-box">
+                        • Էլեկտրաստատիկ էկրանավորում<br>
+                        • Դաշտը հաղորդչի ներսում (E = 0)
+                    </div>
+                </div>
+                <button class="reveal-btn" onclick="toggleSecret('sec_fara')">💡 Ի՞նչ անել արտակարգ պահին ▼</button>
+                <div id="sec_fara" class="hidden-content">
+                    <b>Կանոն:</b> Փոթորկի պահին մնացեք մեքենայի ներսում, փակեք ապակիները և մի՛ դիպչեք մետաղական բաց մասերին:
+                </div>
+            </div>
         </div>
     </div>
 
-    <footer>
-        <p>© 2026 STEM Physics & AgTech Educational Platform</p>
-    </footer>
+    <!-- ԲԼՈԿ 2: ԱՌՕՐՅԱ ՏԵԽՆԻԿԱ ԵՎ ԲՆՈՒԹՅՈՒՆ -->
+    <button class="accordion-btn" onclick="toggleMainSection('main_sec2', this)">
+        <span>🍳 2. Առօրյա Տեխնիկա և Բնական Երևույթներ</span>
+        <span class="arrow-icon">▼</span>
+    </button>
+
+    <div id="main_sec2" class="accordion-content">
+        <div class="container">
+            <div class="fact-card">
+                <div>
+                    <div class="card-icon">🧲</div>
+                    <div class="card-title">Ինդուկցիոն Վառարան</div>
+                    <div class="card-text">
+                        Վառարանի մակերեսը չի տաքանում: Փոփոխական մագնիսական դաշտն առաջացնում է Ֆուկոյի մրրկային հոսանքներ, որոնք տաքացնում են միայն թավան:
+                    </div>
+                    <div class="formula-box">
+                        • Էլեկտրամագնիսական ինդուկցիա<br>
+                        • Ջոուլ-Լենցի օրենք: Q = I² · R · t
+                    </div>
+                </div>
+                <button class="reveal-btn" onclick="toggleSecret('sec5')">💡 Ինչո՞ւ ձեռքը չի այրվում ▼</button>
+                <div id="sec5" class="hidden-content">
+                    Ձեռքը մագնիսական մետաղ չէ, ուստի մագնիսական դաշտը դրա վրա հոսանք չի ինդուկցում:
+                </div>
+            </div>
+
+            <div class="fact-card">
+                <div>
+                    <div class="card-icon">📡</div>
+                    <div class="card-title">Միկրոալիքային Վառարան</div>
+                    <div class="card-text">
+                        2.45 ԳՀց հաճախականության էլեկտրամագնիսական ալիքները տատանում են ուտելիքի մեջ եղած ջրի մոլեկուլները՝ ստեղծելով շփման ջերմություն:
+                    </div>
+                    <div class="formula-box">
+                        • Էլեկտրամագնիսական ալիքներ<br>
+                        • Մոլեկուլային տատանման ռեզոնանս
+                    </div>
+                </div>
+                <button class="reveal-btn" onclick="toggleSecret('sec6')">💡 Ինչո՞ւ ափսեն չի տաքանում ▼</button>
+                <div id="sec6" class="hidden-content">
+                    Չոր ապակին կամ հախճապակին ջրի մոլեկուլներ չունեն, ուստի միկրոալիքները անցնում են դրանց միջով անվնաս:
+                </div>
+            </div>
+
+            <div class="fact-card">
+                <div>
+                    <div class="card-icon">🐦</div>
+                    <div class="card-title">Թռչունները Լարերի Վրա</div>
+                    <div class="card-text">
+                        Թռչունը նստում է միայն ՄԵԿ լարի վրա. նրա ոտքերի միջև պոտենցիալների տարբերությունը (լարումը) ~0 է, ուստի հոսանքը նրա մարմնով չի հոսում:
+                    </div>
+                    <div class="formula-box">
+                        • Պոտենցիալների տարբերություն (ΔV = 0)<br>
+                        • Էլեկտրական շղթայի բաց լինելը
+                    </div>
+                </div>
+                <button class="reveal-btn" onclick="toggleSecret('sec7')">💡 Ե՞րբ կէլեկտրահարվի թռչունը ▼</button>
+                <div id="sec7" class="hidden-content">
+                    Եթե թռչունը թևով դիպչի հարևան լարին կամ մետաղյա սյունին, իսկույն կփակի շղթան:
+                </div>
+            </div>
+
+            <div class="fact-card">
+                <div>
+                    <div class="card-icon">🌧️</div>
+                    <div class="card-title">Ակվապլանավորում (Hydroplaning)</div>
+                    <div class="card-text">
+                        Անձրևոտ ճանապարհին բարձր արագության տակ անվադողերի և ասֆալտի արանքում հավաքվում է ջրի շերտ: Մեքենան կորցնում է շփման ուժը (~0) և սկսում «սահել»:
+                    </div>
+                    <div class="formula-box">
+                        • Դադարի և սահքի շփման ուժ: F_սահք = μ · N<br>
+                        • Հիդրոդինամիկ բարձիկ
+                    </div>
+                </div>
+                <button class="reveal-btn" onclick="toggleSecret('sec8')">💡 Ինչո՞ւ են պետք ակոսները ▼</button>
+                <div id="sec8" class="hidden-content">
+                    Անվադողերի ակոսները ստեղծված են ջուրը կողք նետելու և ասֆալտի հետ կապը պահպանելու համար:
+                </div>
+            </div>
+
+            <div class="fact-card">
+                <div>
+                    <div class="card-icon">🎧</div>
+                    <div class="card-title">Աղմուկի Ակտիվ Խլացում (ANC)</div>
+                    <div class="card-text">
+                        Ժամանակակից ականջակալները որսում են արտաքին աղմուկը և արտադրում են ճիշտ հակառակ ֆազով ալիք՝ չեզոքացնելով աղմուկը:
+                    </div>
+                    <div class="formula-box">
+                        • Ալիքների Ինտերֆերենց<br>
+                        • Հակաֆազ տատանում (+A + -A = 0)
+                    </div>
+                </div>
+                <button class="reveal-btn" onclick="toggleSecret('sec9')">💡 Ինչպե՞ս է աշխատում ▼</button>
+                <div id="sec9" class="hidden-content">
+                    Ալիքների գումարումից ձայնային տատանումը լրիվ մարում է (Destructive Interference):
+                </div>
+            </div>
+
+            <div class="fact-card">
+                <div>
+                    <div class="card-icon">💎</div>
+                    <div class="card-title">Լույսի «Դանդաղումը» Նյութում</div>
+                    <div class="card-text">
+                        Վակուումում լույսի արագությունը ~300,000 կմ/վ է, սակայն ալմաստի միջով անցնելիս այն դանդաղում է մինչև ~124,000 կմ/վ:
+                    </div>
+                    <div class="formula-box">
+                        • Բեկման ցուցիչ: n = c / v<br>
+                        • Լույսի բեկում և լրիվ անդրադարձ
+                    </div>
+                </div>
+                <button class="reveal-btn" onclick="toggleSecret('sec10')">💡 Կապը Տեխնոլոգիայի հետ ▼</button>
+                <div id="sec10" class="hidden-content">
+                    Այս երևույթն է ապահովում մալուխային լուսատար (Fiber-optic) գերարագ ինտերնետի աշխատանքը:
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ԲԼՈԿ 3: ԳԻՏԵ՞ԻՐ ԹԵ... -->
+    <button class="accordion-btn" onclick="toggleMainSection('main_sec3', this)">
+        <span>❓ 3. Գիտեի՞ր Թե... (Զարմանահրաշ Փաստեր)</span>
+        <span class="arrow-icon">▼</span>
+    </button>
+
+    <div id="main_sec3" class="accordion-content">
+        <div class="faq-grid">
+            <div class="faq-card">
+                <div class="faq-question">🍌 Բանանները Ռադիոակտիվ են</div>
+                <div class="faq-answer">Բանանը պարունակում է Կալիում-40 (K-40) ռադիոակտիվ իզոտոպ: Գիտության մեջ կա անգամ «Բանանային էկվիվալենտ չափաբաժին» (BED) հասկացությունը:</div>
+            </div>
+            <div class="faq-card">
+                <div class="faq-question">🛰️ Ժամանակը Տիեզերքում Ավելի Արագ է Հոսում</div>
+                <div class="faq-answer">Ըստ Էյնշտեյնի՝ ուժեղ ձգողականության մեջ ժամանակը դանդաղում է: GPS արբանյակների ժամացույցները օրական 38 միկրովայրկյանով ավելի արագ են աշխատում:</div>
+            </div>
+            <div class="faq-card">
+                <div class="faq-question">⚡ Կայծակն ավելի Տաք է, քան Արևի Մակերևույթը</div>
+                <div class="faq-answer">Կայծակի հարվածի պահին օդի ջերմաստիճանը հասնում է մինչև 30,000 °C (5 անգամ ավելի տաք, քան Արեգակի մակերևույթը):</div>
+            </div>
+            <div class="faq-card">
+                <div class="faq-question">💧 Ջրի «Եռակի Կետը»</div>
+                <div class="faq-answer">0.01 °C և 611.65 Պա պայմաններում ջուրը միաժամանակ գտնվում է 3 վիճակում՝ պինդ, հեղուկ և գազային:</div>
+            </div>
+            <div class="faq-card">
+                <div class="faq-question">🔥 Ինչո՞ւ չի կարելի էլեկտրական սարքը հանգցնել ջրով:</div>
+                <div class="faq-answer">Ծորակի ջուրը պարունակում է աղեր և էլեկտրահաղորդիչ է: Ջուր լցնելով՝ դուք էլեկտրական շղթա եք ստեղծում դեպի ձեր մարմինը:</div>
+            </div>
+            <div class="faq-card">
+                <div class="faq-question">🧊 Ինչո՞ւ է սառույցը լողում ջրի մակերեսին:</div>
+                <div class="faq-answer">Ջուրը սառչելիս ընդարձակվում է, ուստի սառույցի խտությունը փոքր է հեղուկ ջրի խտությունից:</div>
+            </div>
+            <div class="faq-card">
+                <div class="faq-question">📱 Ինչո՞ւ է ցուրտ եղանակին մարտկոցը շուտ նստում:</div>
+                <div class="faq-answer">Ցածր ջերմաստիճանում լիթիում-իոնային մարտկոցի ներսում քիմիական ռեակցիաները դանդաղում են, և էլեկտրոնների շարժունակությունը նվազում է:</div>
+            </div>
+            <div class="faq-card">
+                <div class="faq-question">🔊 Ինչո՞ւ է ինքնաթիռում ականջները փակվում:</div>
+                <div class="faq-answer">Բարձրանալիս մթնոլորտային ճնշումը նվազում է, իսկ միջին ականջում ճնշումը մնում է նույնը, ինչի պատճառով թմբկաթաղանթը ձգվում է:</div>
+            </div>
+        </div>
+    </div>
 
     <script>
-        function toggleFact(id) {
-            const box = document.getElementById(id);
-            if (box.style.display === "block") {
-                box.style.display = "none";
+        function toggleMainSection(id, btn) {
+            var content = document.getElementById(id);
+            if (content.style.display === "block") {
+                content.style.display = "none";
+                btn.classList.remove("active");
             } else {
-                box.style.display = "block";
+                content.style.display = "block";
+                btn.classList.add("active");
+            }
+        }
+
+        function toggleSecret(id) {
+            var el = document.getElementById(id);
+            if (el.style.display === "block") {
+                el.style.display = "none";
+            } else {
+                el.style.display = "block";
             }
         }
     </script>
