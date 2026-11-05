@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Տեսական Ֆիզիկա | Smart Eco-Campus</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f7f6;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+
+        nav {
+            background: #1e3c72;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav h2 {
+            color: white;
+            font-size: 1.3rem;
+        }
+
+        .back-btn {
+            color: white;
+            text-decoration: none;
+            background: rgba(255,255,255,0.15);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            transition: background 0.3s;
+        }
+
+        .back-btn:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .page-header h1 {
+            color: #1e3c72;
+            font-size: 2.3rem;
+            margin-bottom: 10px;
+        }
+
+        .page-header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .topic-card {
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            overflow: hidden;
+            border-left: 6px solid #2a5298;
+        }
+
+        .topic-header {
+            padding: 22px 25px;
+            background: white;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+
+        .topic-header:hover {
+            background: #f8f9fa;
+        }
+
+        .topic-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #1e3c72;
+        }
+
+        .topic-icon {
+            font-size: 1.8rem;
+        }
+
+        .toggle-icon {
+            font-size: 1.2rem;
+            color: #2a5298;
+        }
+
+        .topic-content {
+            padding: 25px;
+            display: none;
+            border-top: 1px solid #eee;
+            background: #fafafa;
+        }
+
+        .topic-content.active {
+            display: block;
+        }
+
+        .section-block {
+            margin-bottom: 20px;
+            background: white;
+            padding: 18px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .section-block h4 {
+            color: #1e3c72;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .formula-box {
+            background: #eef2f7;
+            border-left: 4px solid #00c853;
+            padding: 12px 18px;
+            margin: 10px 0;
+            border-radius: 4px;
+            font-weight: bold;
+            color: #1a2a47;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            margin-top: 60px;
+            background: #e9ecef;
+            color: #6c757d;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <h2>📚 Տեսական Ֆիզիկա</h2>
+        <a href="menu.html" class="back-btn">⬅ Մենյու</a>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Ֆիզիկայի Բոլոր Բաժինները</h1>
+            <p>Սեղմեք բաժնի վրա՝ հիմնադիրներին, կիրառությանը, օրենքներին և գրաֆիկներին ծանոթանալու համար։</p>
+        </div>
+
+        <!-- 1. ՄԵԽԱՆԻԿԱ -->
+        <div class="topic-card">
+            <div class="topic-header" onclick="toggleTopic('section1')">
+                <div class="topic-title">
+                    <span class="topic-icon">⚙️</span>
+                    <span>1. Մեխանիկա</span>
+                </div>
+                <span class="toggle-icon" id="icon-section1">▼</span>
+            </div>
+            <div class="topic-content" id="section1">
+                <div class="section-block">
+                    <h4>📌 Ի՞նչ է ուսումնասիրում</h4>
+                    <p>Մեխանիկան ուսումնասիրում է մարմինների մեխանիկական շարժումը (դիրքի փոփոխությունը տարածության և ժամանակի մեջ) և դրանց միջև փոխազդեցությունները:</p>
+                </div>
+                <div class="section-block">
+                    <h4>🏛️ Հիմնադիրները</h4>
+                    <p><b>Իսահակ Նյուտոն</b> (դինամիկայի հիմնարար օրենքների հեղինակ), <b>Գալիլեո Գալիլեյ</b> (իներցիայի օրենք և ազատ անկում), <b>Իոհան Կեպլեր</b> (մոլորակների շարժման օրենքներ):</p>
+                </div>
+                <div class="section-block">
+                    <h4>💡 Որտե՞ղ և Ինչպե՞ս է կիրառվում</h4>
+                    <p>Ավտոմեքենաշինությունում, ավիացիայում, տիեզերագնացությունում (արբանյակների թռիչքի հաշվարկ), շինարարությունում (կամուրջների ու շենքերի կայունություն) և ռազմական բալիստիկայում:</p>
+                </div>
+                <div class="section-block">
+                    <h4>📐 Հիմնական Սահմանումներ և Բանաձևեր</h4>
+                    <div class="formula-box">
+                        • Հավասարաչափ շարժում: V = S / t<br>
+                        • Արագացում: a = (V - V₀) / t<br>
+                        • Նյուտոնի II Օրենք: F = m · a<br>
+                        • Իմպուլսի պահպանում: P = m · V | P₁ + P₂ = const<br>
+                        • Կինետիկ Էներգիա: Eₖ = (m · V²) / 2
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <img src="mechanics.jpg" alt="Մեխանիկայի Բանաձևեր և Գրաֆիկներ" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. ՄՈԼԵԿՈՒԼԱՅԻՆ ՖԻԶԻԿԱ -->
+        <div class="topic-card">
+            <div class="topic-header" onclick="toggleTopic('section2')">
+                <div class="topic-title">
+                    <span class="topic-icon">🔬</span>
+                    <span>2. Մոլեկուլային Ֆիզիկա</span>
+                </div>
+                <span class="toggle-icon" id="icon-section2">▼</span>
+            </div>
+            <div class="topic-content" id="section2">
+                <div class="section-block">
+                    <h4>📌 Ի՞նչ է ուսումնասիրում</h4>
+                    <p>Ուսումնասիրում է նյութերի կառուցվածքը մոլեկուլային մակարդակում, մոլեկուլների քաոսային շարժումը, ջերմաստիճանը և իզոպրոցեսները:</p>
+                </div>
+                <div class="section-block">
+                    <h4>🏛️ Հիմնադիրները</h4>
+                    <p><b>Լուդվիգ Բոլցման</b>, <b>Դմիտրի Մենդելեև</b>, <b>Բենուա Կլապեյրոն</b>, <b>Ռոբերտ Բոյլ</b> և <b>Էդմ Մարիոտ</b>:</p>
+                </div>
+                <div class="section-block">
+                    <h4>💡 Որտե՞ղ և Ինչպե՞ս է կիրառվում</h4>
+                    <p>Գազային համակարգերում, խելացի ջերմոցներում (կլիմայի կառավարում), օդերևութաբանությունում և նյութագիտությունում:</p>
+                </div>
+                <div class="section-block">
+                    <h4>📐 Հիմնական Սահմանումներ և Բանաձևեր</h4>
+                    <div class="formula-box">
+                        • Կլապեյրոն-Մենդելեևի հավասարում: P · V = n · R · T<br>
+                        • Իզոթերմ պրոցես (T=const): P · V = const (Բոյլ-Մարիոտ)<br>
+                        • Իզոբար պրոցես (P=const): V / T = const (Գեյ-Լյուսակ)<br>
+                        • Իզոխոր պրոցես (V=const): P / T = const (Շարլ)
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <img src="thermo.jpg" alt="Մոլեկուլային Ֆիզիկայի Բանաձևեր" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. ՋԵՐՄՈԴԻՆԱՄԻԿԱ -->
+        <div class="topic-card">
+            <div class="topic-header" onclick="toggleTopic('section3')">
+                <div class="topic-title">
+                    <span class="topic-icon">🌡️</span>
+                    <span>3. Ջերմոդինամիկա</span>
+                </div>
+                <span class="toggle-icon" id="icon-section3">▼</span>
+            </div>
+           <div class="topic-content" id="section3">
+                
+                <div class="section-block">
+                    <h4>📌 Ի՞նչ է ուսումնասիրում</h4>
+                    <p>Ջերմոդինամիկան ուսումնասիրում է ջերմային էներգիայի փոխակերպումը մեխանիկական աշխատանքի, ջերմափոխանակության օրենքները, էնտրոպիան և ջերմային համակարգերի հավասարակշռությունը:</p>
+                </div>
+
+                <div class="section-block">
+                    <h4>🏛️ Հիմնադիրները</h4>
+                    <p><b>Սադի Կարնո</b> (ջերմային շարժիչների տեսության և Կարնոյի ցիկլի հիմնադիր), <b>Ջեյմս Ջոուլ</b> (էներգիայի պահպանման օրենք), <b>Ուիլյամ Թոմսոն (Լորդ Կելվին)</b> և <b>Ռուդոլֆ Կլաուզիուս</b> (էնտրոպիայի գաղափար):</p>
+                </div>
+
+                <div class="section-block">
+                    <h4>💡 Որտե՞ղ և Ինչպե՞ս է կիրառվում</h4>
+                    <p>Ներքին այրման, շոգեգոլորշային և ռեակտիվ շարժիչներում, ջերմային ու ատոմային էլեկտրակայաններում, սառնարանային համակարգերում, օդորակիչներում, ջերմային պոմպերում և Smart Eco-Campus-ի կլիմայի կառավարման համակարգերում:</p>
+                </div>
+
+                <div class="section-block">
+                    <h4>📐 Հիմնական Սահմանումներ և Բանաձևեր</h4>
+                    <div class="formula-box">
+                        • Ջերմոդինամիկայի I Օրենք: Q = ΔU + A<br>
+                        • Գազի Աշխատանք (P=const): A = P · ΔV<br>
+                        • Ջերմաքանակ (տաքացում/սառեցում): Q = c · m · ΔT<br>
+                        • Ջերմային Մեքենայի ՕԳԳ (η): η = (Q₁ - Q₂) / Q₁ = A / Q₁<br>
+                        • Կարնոյի Ցիկլի Առավելագույն ՕԳԳ: ηₘₐₓ = (T₁ - T₂) / T₁
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 20px;">
+    <img src="thermodynamics.jpg" alt="Ջերմոդինամիկայի Բանաձևեր և Գրաֆիկներ" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
+</div>
+
+            </div>
+
+        <!-- 4. ԷԼԵԿՏՐՈԴԻՆԱՄԻԿԱ -->
+        <div class="topic-card">
+            <div class="topic-header" onclick="toggleTopic('section4')">
+                <div class="topic-title">
+                    <span class="topic-icon">⚡</span>
+                    <span>4. Էլեկտրոդինամիկա և Էլեկտրականություն</span>
+                </div>
+                <span class="toggle-icon" id="icon-section4">▼</span>
+            </div>
+            <div class="topic-content" id="section4">
+                <div class="section-block">
+                    <h4>📌 Ի՞նչ է ուսումնասիրում</h4>
+                    <p>Էլեկտրոդինամիկան ուսումնասիրում է էլեկտրական լիցքավորված մարմինների փոխազդեցությունը, էլեկտրական դաշտը, էլեկտրական հոսանքի առաջացման ու տարածման օրենքները:</p>
+                </div>
+                <div class="section-block">
+                    <h4>🏛️ Հիմնադիրները</h4>
+                    <p><b>Շարլ Կուլոն</b>, <b>Գեորգ Օհմ</b>, <b>Անդրե-Մարի Ամպեր</b>, <b>Ալեսանդրո Վոլտա</b>, <b>Թոմաս Էդիսոն</b>:</p>
+                </div>
+                <div class="section-block">
+                    <h4>💡 Որտե՞ղ և Ինչպե՞ս է կիրառվում</h4>
+                    <p>Էներգետիկայում (էլեկտրացանցեր), էլեկտրոնիկայում, սմարթֆոններում, արևային պանելներում և ESP32 սենսորային պլատաներում:</p>
+                </div>
+                <div class="section-block">
+                    <h4>📐 Հիմնական Սահմանումներ և Բանաձևեր</h4>
+                    <div class="formula-box">
+                        • Կուլոնի Օրենք: F = k · (|q₁ · q₂|) / r²<br>
+                        • Օհմի Օրենք: I = U / R<br>
+                        • Էլեկտրական Դիմադրություն: R = ρ · (L / S)<br>
+                        • Ջոուլ-Լենցի Օրենք: Q = I² · R · t<br>
+                        • Հոսանքի Հզորություն: P = U · I
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <img src="electrodynamics.jpg" alt="Էլեկտրոդինամիկայի Բանաձևեր" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. ՄԱԳՆԻՍԱԿԱՆՈՒԹՅՈՒՆ -->
+        <div class="topic-card">
+            <div class="topic-header" onclick="toggleTopic('section5')">
+                <div class="topic-title">
+                    <span class="topic-icon">🧲</span>
+                    <span>5. Մագնիսականություն և Էլեկտրամագնիսական Ալիքներ</span>
+                </div>
+                <span class="toggle-icon" id="icon-section5">▼</span>
+            </div>
+           <div class="topic-content" id="section5">
+                
+                <div class="section-block">
+                    <h4>📌 Ի՞նչ է ուսումնասիրում</h4>
+                    <p>Ուսումնասիրում է մագնիսական դաշտը, էլեկտրամագնիսական ինդուկցիայի երևույթը, շարժվող լիցքերի վրա ազդող ուժերը և էլեկտրամագնիսական ալիքների տարածումը տարածության մեջ:</p>
+                </div>
+
+                <div class="section-block">
+                    <h4>🏛️ Հիմնադիրները</h4>
+                    <p><b>Ջեյմս Քլերկ Մաքսվել</b> (էլեկտրամագնիսական դաշտի միասնական տեսություն), <b>Մայքլ Ֆարադեյ</b> (էլեկտրամագնիսական ինդուկցիա), <b>Հենդրիկ Լորենց</b>, <b>Հանս Քրիստիան Էրստեդ</b> և <b>Հայնրիխ Հերց</b> (ԷՄ ալիքների հայտնագործում):</p>
+                </div>
+
+                <div class="section-block">
+                    <h4>💡 Որտե՞ղ և Ինչպե՞ս է կիրառվում</h4>
+                    <p>Էլեկտրաշարժիչներում, գեներատորներում, տրանսֆորմատորներում, Wi-Fi և ռադիոկապի համակարգերում, ռադարներում, բժշկական ՄՌՏ (MRI) ապարատներում և RFID/NFC տեխնոլոգիաներում:</p>
+                </div>
+
+                <div class="section-block">
+                    <h4>📐 Հիմնական Սահմանումներ և Բանաձևեր</h4>
+                    <div class="formula-box">
+                        • Ամպերի Օրենք: F = I · B · L · sin(α)<br>
+                        • Լորենցի Ուժ: F = q · v · B · sin(α)<br>
+                        • Ֆարադեյի Ինդուկցիայի Օրենք: ε = - ΔΦ / Δt<br>
+                        • Մագնիսական Հոսք: Φ = B · S · cos(α)<br>
+                        • Ալիքի Երկարություն և Արագություն: c = λ · ν  (c ≈ 3·10⁸ մ/վ)
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 20px;">
+                    <img src="magnetism.jpg" alt="Մագնիսականության Բանաձևեր և Գրաֆիկներ" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
+                </div>
+
+            </div>
+
+        <!-- 6. ՕՊՏԻԿԱ -->
+        <div class="topic-card">
+            <div class="topic-header" onclick="toggleTopic('section6')">
+                <div class="topic-title">
+                    <span class="topic-icon">🔍</span>
+                    <span>6. Օպտիկա և Ալիքային Ֆիզիկա</span>
+                </div>
+                <span class="toggle-icon" id="icon-section6">▼</span>
+            </div>
+           <div class="topic-content" id="section6">
+                
+                <div class="section-block">
+                    <h4>📌 Ի՞նչ է ուսումնասիրում</h4>
+                    <p>Ուսումնասիրում է լույսի բնույթը, տարածումը, նյութի հետ փոխազդեցությունը, ինչպես նաև անդրադարձման, բեկման, ինտերֆերենցիայի, դիֆրակցիայի և բևեռացման երևույթները:</p>
+                </div>
+
+                <div class="section-block">
+                    <h4>🏛️ Հիմնադիրները</h4>
+                    <p><b>Իսահակ Նյուտոն</b> (մասնիկային տեսություն), <b>Քրիստիան Հյույգենս</b> (ալիքային տեսություն), <b>Օգյուստեն Ֆրենել</b>, <b>Ջեյմս Քլերկ Մաքսվել</b> (լույսի էլեկտրամագնիսական բնույթ), <b>Ալբերտ Էյնշտեյն</b> (ֆոտոնային տեսություն):</p>
+                </div>
+
+                <div class="section-block">
+                    <h4>💡 Որտե՞ղ և Ինչպե՞ս է կիրառվում</h4>
+                    <p>Ակնոցներում, մանրադիտակներում, աստղադիտակներում, լուսանկարչական ապարատներում, մալուխային օպտիկայում (ինտերնետ), լազերներում (բժշկություն, արդյունաբերություն), հոլոգրաֆիայում և արևային պանելներում:</p>
+                </div>
+
+                <div class="section-block">
+                    <h4>📐 Հիմնական Սահմանումներ և Բանաձևեր</h4>
+                    <div class="formula-box">
+                        • Լույսի արագություն: c = ν · λ<br>
+                        • Անդրադարձման օրենք: α = β<br>
+                        • Բեկման ցուցիչ: n = c / v<br>
+                        • Սնելիուսի Օրենք: n₁ · sin(α) = n₂ · sin(β)<br>
+                        • Բարակ ոսպնյակի բանաձև: 1/F = 1/d + 1/f
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 20px;">
+                    <img src="optics.jpg" alt="Օպտիկայի Բանաձևեր և Գրաֆիկներ" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
+                </div>
+
+            </div>
+
+        <!-- 7. ԱՏՈՄԱՅԻՆ ՖԻԶԻԿԱ -->
+        <div class="topic-card">
+            <div class="topic-header" onclick="toggleTopic('section7')">
+                <div class="topic-title">
+                    <span class="topic-icon">⚛️</span>
+                    <span>7. Ատոմային և Քվանտային Ֆիզիկա</span>
+                </div>
+                <span class="toggle-icon" id="icon-section7">▼</span>
+            </div>
+           <div class="topic-content" id="section7">
+                
+                <div class="section-block">
+                    <h4>📌 Ի՞նչ է ուսումնասիրում</h4>
+                    <p>Ուսումնասիրում է ատոմի և միջուկի կառուցվածքը, քվանտային երևույթները, լույսի մասնիկային (ֆոտոնային) բնույթը, ֆոտոէֆեկտը, ռադիոակտիվությունը և հարաբերականության տեսությունը:</p>
+                </div>
+
+                <div class="section-block">
+                    <h4>🏛️ Հիմնադիրները</h4>
+                    <p><b>Մաքս Պլանկ</b> (քվանտային տեսության հիմնադիր), <b>Ալբերտ Էյնշտեյն</b> (ֆոտոէֆեկտ, հարաբերականություն), <b>Էռնեստ Ռեզերֆորդ</b> (ատոմի մոլորակային մոդել), <b>Նիլս Բոր</b>, <b>Վերներ Հայզենբերգ</b> և <b>Մարի Կյուրի</b>:</p>
+                </div>
+
+                <div class="section-block">
+                    <h4>💡 Որտե՞ղ և Ինչպե՞ս է կիրառվում</h4>
+                    <p>Ատոմային էլեկտրակայաններում, կիսահաղորդչային տեխնոլոգիաներում (միկրոպրոցեսորներ, ESP32), քվանտային համակարգիչներում, լազերային վիրաբուժությունում, ճառագայթային թերապիայում և GPS նավիգացիայում:</p>
+                </div>
+
+                <div class="section-block">
+                    <h4>📐 Հիմնական Սահմանումներ և Բանաձևեր</h4>
+                    <div class="formula-box">
+                        • Ֆոտոնի էներգիա: E = h · ν<br>
+                        • Էյնշտեյնի բանաձև (Զանգված-էներգիա): E = m · c²<br>
+                        • Ֆոտոէֆեկտի հավասարում: h · ν = Aₑ + (m · v²) / 2<br>
+                        • Դե Բրոյլի ալիքի երկարություն: λ = h / p<br>
+                        • Ռադիոակտիվ տրոհման օրենք: N = N₀ · 2^(-t / T)
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 20px;">
+                    <img src="atomic.jpg" alt="Ատոմային և Քվանտային Ֆիզիկայի Բանաձևեր" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
+                </div>
+
+            </div>
+
+    </div>
+
+    <footer>
+        <p>© 2026 Ֆիզիկայի Ուսուցողական Հարթակ | Մագիստրոսական Ավարտական Նախագիծ</p>
+    </footer>
+
+    <script>
+        function toggleTopic(id) {
+            const content = document.getElementById(id);
+            const icon = document.getElementById('icon-' + id);
+            
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                icon.innerText = '▼';
+            } else {
+                content.classList.add('active');
+                icon.innerText = '▲';
+            }
+        }
+    </script>
+
+</body>
+</html>

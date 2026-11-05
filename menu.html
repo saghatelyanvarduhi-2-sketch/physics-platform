@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ուսումնական Մոդուլներ | Ֆիզիկա</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f7f6;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+
+        /* Top Nav */
+        nav {
+            background: #1e3c72;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav h2 {
+            color: white;
+            font-size: 1.3rem;
+        }
+
+        .back-btn {
+            color: white;
+            text-decoration: none;
+            background: rgba(255,255,255,0.15);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            transition: background 0.3s;
+        }
+
+        .back-btn:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            color: #1e3c72;
+            font-size: 2.2rem;
+            margin-bottom: 45px;
+        }
+
+        /* 6 Սիմետրիկ Քարտերի Ցանց (3x2) */
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        @media (max-width: 900px) {
+            .modules-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .modules-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 45px 20px;
+            text-decoration: none;
+            color: #333;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border-top: 5px solid #2a5298;
+            min-height: 180px;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+            border-top: 5px solid #00c853;
+        }
+
+        /* Special style for the Military Physics (BOM) card */
+        .card.military-card {
+            border-top: 5px solid #d32f2f;
+        }
+
+        .card.military-card:hover {
+            border-top: 5px solid #ff1744;
+        }
+
+        .card-icon {
+            font-size: 55px;
+            margin-bottom: 15px;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #1e3c72;
+        }
+
+        .card.military-card .card-title {
+            color: #b71c1c;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            margin-top: 80px;
+            background: #e9ecef;
+            color: #6c757d;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <h2>🔬 Ֆիզիկայի Ուսուցողական Հարթակ</h2>
+        <a href="index.html" class="back-btn">⬅ Գլխավոր Էջ</a>
+    </nav>
+
+    <div class="container">
+        <h1 class="page-title">Ընտրեք Ուսումնական Մոդուլը</h1>
+
+        <div class="modules-grid">
+            
+            <!-- 1. Տեսական Ֆիզիկա -->
+            <a href="topics.html" class="card">
+                <div class="card-icon">📚</div>
+                <div class="card-title">Տեսական Ֆիզիկա</div>
+            </a>
+
+            <!-- 2. Հետաքրքիր Փաստեր -->
+            <a href="facts.html" class="card">
+                <div class="card-icon">💡</div>
+                <div class="card-title">Հետաքրքիր Փաստեր</div>
+            </a>
+
+            <!-- 3. Ֆիզիկան Կինոյում -->
+            <a href="cinema.html" class="card">
+                <div class="card-icon">🎬</div>
+                <div class="card-title">Ֆիզիկան Կինոյում</div>
+            </a>
+
+            <!-- 4. Փորձեր, Խաղեր և Վիկտորինա -->
+            <a href="experiments.html" class="card">
+                <div class="card-icon">🧪</div>
+                <div class="card-title">Փորձեր, Խաղեր և Վիկտորինա</div>
+            </a>
+
+            <!-- 5. Խելացի Քոլեջ (ESP32) -->
+            <a href="agtech.html" class="card">
+                <div class="card-icon">🌱</div>
+                <div class="card-title">Խելացի Քոլեջ (ESP32)</div>
+            </a>
+
+            <!-- 6. Ռազմական Ֆիզիկա (ԲՈՒՄԸ) -->
+            <a href="military.html" class="card military-card">
+                <div class="card-icon">🎯</div>
+                <div class="card-title">Ռազմական Ֆիզիկա</div>
+            </a>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Ֆիզիկայի Ուսուցողական Հարթակ | Մագիստրոսական Ավարտական Նախագիծ</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,684 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+    background-color: #f8fafc;
+    /* ՖՈՆԱՅԻՆ ՆԿԱՐ՝ ՈՂՈՂՎԱԾ ԲԱՆԱՁԵՎԵՐՈՎ ՈՒ ՆՇԱՆՆԵՐՈՎ */
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMjAwIDIwMCI+PHRleHQgeD0iMTAiIHk9IjMwIiBmaWxsPSIjMDI4NGM3IiBmaWxsLW9wYWNpdHk9IjAuMDUiIGZvbnQtZmFtaWx5PSJDb3VyaWVyIE5ldywgQ291cmllciwgbW9ub3NwYWNlIiBmb250LXNpemU9IjI0IiBmb250LXdlaWdodD0iYm9sZCI+Rj1tYTwvdGV4dD48dGV4dCB4PSIxMTAiIHk9IjgwIiBmaWxsPSIjMDI4NGM3IiBmaWxsLW9wYWNpdHk9IjAuMDUiIGZvbnQtZmFtaWx5PSJDb3VyaWVyIE5ldywgQ291cmllciwgbW9ub3NwYWNlIiBmb250LXNpemU9IjI0IiBmb250LXdlaWdodD0iYm9sZCI+RT1tY8KyPC90ZXh0Pjx0ZXh0IHg9IjIwIiB5PSIxNTAiIGZpbGw9IiMwMjg0YzciIGZpbGwtb3BhY2pdHk9IjAuMDUiIGZvbnQtZmFtaWx5PSJDb3VyaWVyIE5ldywgQ291cmllciwgbW9ub3NwYWNlIiBmb250LXNpemU9IjI0IiBmb250LXdlaWdodD0iYm9sZCI+ST1VL1I8L3RleHQ+PHRleHQgeD0iMTMwIiB5PSIxNDAiIGZpbGw9IiMwMjg0YzciIGZpbGwtb3BhY2pdHk9IjAuMDUiIGZvbnQtZmFtaWx5PSJDb3VyaWVyIE5ldywgQ291cmllciwgbW9ub3NwYWNlIiBmb250LXNpemU9IjI0IiBmb250LXdlaWdodD0iYm9sZCI+dj12MCthdDwvdGV4dD48dGV4dCB4PSI1MCIgeT0iMTgwIiBmaWxsPSIjMDI4NGM3IiBmaWxsLW9wYWNpdHk9IjAuMDUiIGZvbnQtZmFtaWx5PSJDb3VyaWVyIE5ldywgQ291cmllciwgbW9ub3NwYWNlIiBmb250LXNpemU9IjYwIiBmb250LXdlaWdodD0iYm9sZCI+4py5PC90ZXh0Pjx0ZXh0IHg9IjE1MCIgeT0iMjAiIGZpbGw9IiMwMjg0YzciIGZpbGwtb3BhY2pdHk9IjAuMDUiIGZvbnQtZmFtaWx5PSJDb3VyaWVyIE5ldywgQ291cmllciwgbW9ub3NwYWNlIiBmb250LXNpemU9IjYwIiBmb250LXdlaWdodD0iYm9sZCI+4pq5PC90ZXh0Pjwvc3ZnPg==');
+    background-repeat: repeat;
+    color: #1e293b;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ... ՁԵՐ ՄՅՈՒՍ CSS ՈՃԵՐԸ ... */
+
+header {
+    background-color: #ffffff;
+    padding: 1.2rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    z-index: 10;
+}
+
+.logo h2 {
+    color: #0284c7;
+    font-weight: 700;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    color: #475569;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover, nav ul li a.active {
+    color: #0284c7;
+}
+
+/* ԳԼԽԱՎՈՐ ԷՋ (INDEX) */
+.main-screen {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 50%, #e0f2fe 100%);
+    padding: 20px;
+}
+
+.hero-card {
+    max-width: 800px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(2, 132, 199, 0.08);
+    text-align: center;
+    z-index: 2;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.hero-card h1 {
+    font-size: 2.2rem;
+    color: #0f172a;
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+.about-box {
+    background: #ffffff;
+    padding: 20px 25px;
+    border-radius: 12px;
+    border-left: 4px solid #0284c7;
+    margin-bottom: 30px;
+    text-align: left;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+}
+
+.about-box h3 {
+    color: #0284c7;
+    margin-bottom: 8px;
+    font-size: 1.2rem;
+}
+
+.about-box p {
+    color: #475569;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+.start-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #0284c7;
+    color: #ffffff;
+    padding: 14px 32px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 15px rgba(2, 132, 199, 0.3);
+    transition: all 0.3s ease;
+}
+
+.start-btn:hover {
+    background-color: #0369a1;
+    transform: translateY(-2px);
+}
+
+.math-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.formula {
+    position: absolute;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: rgba(2, 132, 199, 0.15);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.f1 { top: 10%; left: 8%; }
+.f2 { top: 15%; right: 10%; }
+.f3 { top: 75%; left: 8%; }
+.f4 { top: 80%; right: 12%; }
+.f5 { top: 45%; left: 3%; }
+.f6 { top: 48%; right: 4%; }
+.f7 { top: 85%; left: 45%; }
+.f8 { top: 8%; left: 45%; }
+
+/* ԲԱԺԻՆՆԵՐԻ ԷՋ (TOPICS) */
+.topics-container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+    flex: 1;
+}
+
+.page-title {
+    text-align: center;
+    color: #0f172a;
+    font-size: 2.2rem;
+    margin-bottom: 35px;
+    font-weight: 800;
+}
+
+.topics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.topic-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+    border: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.topic-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(2, 132, 199, 0.12);
+    border-color: #bae6fd;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.card-icon {
+    font-size: 2rem;
+}
+
+.card-header h2 {
+    color: #0284c7;
+    font-size: 1.4rem;
+}
+
+.topic-card p {
+    color: #64748b;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.sub-topics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.sub-btn {
+    background: #f1f5f9;
+    color: #0284c7;
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: background 0.2s, color 0.2s;
+}
+
+.sub-btn:hover {
+    background: #0284c7;
+    color: #ffffff;
+}
+
+.open-btn {
+    display: inline-block;
+    color: #0284c7;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-top: 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #ffffff;
+    color: #94a3b8;
+    border-top: 1px solid #e2e8f0;
+    font-size: 0.9rem;
+}/* ՄԵԽԱՆԻԿԱՅԻ ԷՋԻ ՈՃԵՐ */
+.content-container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px 50px 20px;
+}
+
+.topic-hero {
+    text-align: center;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    margin-bottom: 25px;
+    border-top: 5px solid #0284c7;
+}
+
+.topic-hero h1 {
+    color: #0f172a;
+    font-size: 2.2rem;
+    margin-bottom: 8px;
+}
+
+.topic-hero p {
+    color: #64748b;
+    font-size: 1.1rem;
+}
+
+.info-card {
+    background: #ffffff;
+    padding: 25px 30px;
+    border-radius: 14px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    margin-bottom: 20px;
+    border: 1px solid #e2e8f0;
+}
+
+.info-card h2 {
+    color: #0284c7;
+    font-size: 1.35rem;
+    margin-bottom: 15px;
+}
+
+.info-card p {
+    color: #334155;
+    line-height: 1.7;
+    font-size: 1.05rem;
+    margin-bottom: 10px;
+}
+
+.highlight-card {
+    background: #f0f9ff;
+    border-left: 4px solid #0284c7;
+}
+
+.styled-list {
+    margin-left: 20px;
+    color: #334155;
+    line-height: 1.8;
+}
+
+.next-section-box {
+    text-align: center;
+    margin-top: 35px;
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.next-section-box h3 {
+    color: #0f172a;
+    margin-bottom: 15px;
+}
+
+.sub-topics-nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.sub-topic-link {
+    background: #0284c7;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.sub-topic-link:hover {
+    background: #0369a1;
+}
+.back-link {
+    display: inline-block;
+    color: #0284c7;
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: 15px;
+    transition: color 0.2s;
+}
+
+.back-link:hover {
+    color: #0369a1;
+    text-decoration: underline;
+}
+
+.sub-topic-link.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}/* VISUAL SUMMARY CONTAINER */
+.visual-summary-container {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    margin: 30px 0;
+    border: 3px solid #1e293b;
+}
+
+.main-title {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.main-title h1 {
+    font-size: 2.2rem;
+    color: #0f172a;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.main-title span {
+    font-size: 1rem;
+    color: #64748b;
+    font-weight: bold;
+}
+
+/* GRID LAYOUT */
+.visual-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+/* CARD STYLES */
+.v-card {
+    background: #fafafa;
+    border: 2px solid #cbd5e1;
+    border-radius: 14px;
+    padding: 18px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-num {
+    position: absolute;
+    top: -12px;
+    left: 15px;
+    background: #1e293b;
+    color: #fff;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.85rem;
+}
+
+.v-card h3 {
+    font-size: 1.1rem;
+    margin-top: 5px;
+    color: #0f172a;
+    text-align: center;
+}
+
+.card-sub {
+    font-size: 0.8rem;
+    color: #64748b;
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+/* FORMULA BADGE */
+.formula-badge {
+    background: #e0f2fe;
+    border: 2px dashed #0284c7;
+    color: #0369a1;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 8px;
+    border-radius: 8px;
+    margin: 8px 0;
+}
+
+.formula-badge.secondary {
+    background: #f1f5f9;
+    border-color: #64748b;
+    color: #334155;
+    font-size: 1rem;
+}
+
+/* DIAGRAM BOX */
+.diagram-box {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    margin: 8px 0;
+}
+
+.concept-svg { width: 100%; height: 70px; }
+.concept-svg-small { width: 70px; height: 70px; }
+
+.car-animation { font-size: 1.1rem; font-weight: bold; }
+
+.bullet-list {
+    font-size: 0.85rem;
+    padding-left: 15px;
+    color: #334155;
+}
+
+.bullet-list li { margin-bottom: 5px; }
+
+.highlight-box {
+    background: #fef3c7;
+    padding: 6px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    text-align: center;
+    margin-top: 8px;
+}
+
+/* GRAPH MINI GRID */
+.graph-mini-grid {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.g-item { text-align: center; font-size: 0.75rem; font-weight: bold; }
+.g-item svg { width: 70px; height: 45px; background: #fff; border: 1px solid #ccc; border-radius: 4px;
+ }
+ /* VISUAL SUMMARY STYLES */
+.visual-summary-container {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    margin: 30px auto;
+    max-width: 1100px;
+}
+
+.main-title {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.main-title h1 {
+    font-size: 2rem;
+    color: #0f172a;
+}
+
+/* GRID - 3 ՔԱՐՏ ԻՐԱՐ ԿՈՂՔ */
+.visual-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.v-card {
+    background: #f8fafc;
+    border: 2px solid #cbd5e1;
+    border-radius: 14px;
+    padding: 20px;
+    position: relative;
+}
+
+.card-num {
+    position: absolute;
+    top: -12px;
+    left: 15px;
+    background: #0284c7;
+    color: #fff;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* SVG ԳԾԱԳՐԻ ՉԱՓԵՐԸ ՍԱՀՄԱՆԱՓԱԿԵԼՈՒ ՀԱՄԱՐ */
+.diagram-box {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 12px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.concept-svg {
+    width: 100%;
+    max-width: 260px; /* Գծագրի առավելագույն լայնությունը */
+    height: auto;
+}
+
+.bullet-list {
+    padding-left: 18px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}/* TABLE STYLES */
+.table-responsive {
+    overflow-x: auto;
+    margin: 15px 0;
+}
+
+.physics-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.physics-table th {
+    background-color: #0284c7;
+    color: #ffffff;
+    text-align: left;
+    padding: 12px 15px;
+    font-size: 0.95rem;
+}
+
+.physics-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #e2e8f0;
+    color: #334155;
+    font-size: 0.9rem;
+    vertical-align: middle;
+}
+
+.physics-table tr:hover {
+    background-color: #f8fafc;
+}
+
+.physics-table mark {
+    background-color: #e0f2fe;
+    color: #0369a1;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+/* SVG & ANIMATIONS IN TABLE */
+.svg-cell {
+    width: 110px;
+    text-align: center;
+}
+
+.mini-svg {
+    width: 100%;
+    max-width: 100px;
+    height: auto;
+}
+
+.graph-svg {
+    width: 60px;
+    height: 40px;
+    background: #f1f5f9;
+    border-radius: 4px;
+}
+
+.icon-cell {
+    font-size: 1.1rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* EXPERIMENTS GRID */
+.experiments-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.exp-card {
+    background: #f8fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 18px;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.exp-card:hover {
+    transform: translateY(-3px);
+    border-color: #0284c7;
+}
+
+.exp-icon {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+}
+
+.exp-card h3 {
+    color: #0f172a;
+    font-size: 1.05rem;
+    margin-bottom: 6px;
+}
+
+.exp-card p {
+    font-size: 0.88rem;
+    color: #475569;
+    line-height: 1.4;
+}

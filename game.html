@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ֆիզիկայի Միլիոնատեր</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f172a, #1e1b4b);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Գլխավոր Մենյուի Ստիլը */
+        nav {
+            width: 100%;
+            background: #1e293b;
+            padding: 15px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 2px solid #38bdf8;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            transition: 0.2s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+            transform: translateY(-2px);
+        }
+
+        /* Խաղի պատուհանը կենտրոնացնելու համար */
+        .game-wrapper {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 20px;
+        }
+
+        .game-container {
+            width: 100%;
+            max-width: 800px;
+            background: rgba(30, 41, 59, 0.9);
+            border-radius: 16px;
+            padding: 30px;
+            border: 1px solid #3b82f6;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 15px;
+        }
+
+        .score-badge {
+            background: #2563eb;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .lifelines {
+            display: flex;
+            gap: 10px;
+        }
+
+        .lifeline-btn {
+            background: #334155;
+            color: #fff;
+            border: 1px solid #64748b;
+            padding: 6px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .lifeline-btn:hover:not(:disabled) {
+            background: #3b82f6;
+        }
+
+        .lifeline-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        .question-box {
+            background: #0f172a;
+            border: 2px solid #3b82f6;
+            border-radius: 12px;
+            padding: 20px;
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 25px;
+            min-height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .option-btn {
+            background: #1e293b;
+            border: 1px solid #475569;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 1rem;
+            text-align: left;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .option-btn:hover:not(:disabled) {
+            border-color: #3b82f6;
+            background: #334155;
+        }
+
+        .option-btn.correct {
+            background: #16a34a !important;
+            border-color: #22c55e !important;
+        }
+
+        .option-btn.wrong {
+            background: #dc2626 !important;
+            border-color: #ef4444 !important;
+        }
+
+        .explanation-card {
+            display: none;
+            margin-top: 20px;
+            background: #1e3a8a;
+            border-left: 5px solid #38bdf8;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .next-btn {
+            display: none;
+            margin-top: 20px;
+            width: 100%;
+            padding: 12px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .next-btn:hover {
+            background: #1d4ed8;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav>
+<a href="facts.html" style="color: #ef4444; font-weight: bold;">💡 Հետաքրքիր Փաստեր</a>    
+    <a href="index.html" style="color: white; text-decoration: none; font-weight: bold;">🏠 Գլխավոր</a>
+    <a href="topics.html" style="color: white; text-decoration: none; font-weight: bold;">📚 Թեմաներ</a>
+    <a href="kinematics.html" style="color: white; text-decoration: none; font-weight: bold;">🏎️ Կինեմատիկա</a>
+    <a href="mechanics.html" style="color: white; text-decoration: none; font-weight: bold;">⚙️ Մեխանիկա</a>
+    <a href="game.html" style="color: #f59e0b; text-decoration: none; font-weight: bold;">🎮 Խաղ (Միլիոնատեր)</a>
+    <a href="agtech.html" style="color: #4ade80; text-decoration: none; font-weight: bold;">🌱 Smart AgTech</a>
+</nav>
+
+<!-- Main Game View -->
+<div class="game-wrapper">
+    <div class="game-container">
+        <div class="header">
+            <div class="score-badge">Հարց <span id="current-q">1</span>/<span id="total-q">3</span></div>
+            <div class="lifelines">
+                <button class="lifeline-btn" id="life-5050" onclick="use5050()">50/50</button>
+                <button class="lifeline-btn" id="life-hint" onclick="useHint()">💡 Հուշում</button>
+            </div>
+        </div>
+
+        <div class="question-box" id="question-text">
+            Բեռնվում է հարցը...
+        </div>
+
+        <div class="options-grid" id="options-container"></div>
+
+        <div class="explanation-card" id="explanation-box">
+            <strong>📘 Բացատրություն.</strong>
+            <p id="explanation-text"></p>
+        </div>
+
+        <button class="next-btn" id="next-btn" onclick="nextQuestion()">Հաջորդ հարցը ➔</button>
+    </div>
+</div>
+
+<script>
+    const questions = [
+        {
+            question: "Ո՞ր բանաձևով է որոշվում հավասարաչափ շարժման արագությունը:",
+            options: ["v = s / t", "v = a · t", "v = s · t", "v = m · g"],
+            correct: 0,
+            hint: "Արագությունը ճանապարհի և ժամանակի հարաբերությունն է:",
+            explanation: "Հավասարաչափ շարժման արագությունը որոշվում է v = s / t բանաձևով, որտեղ s-ը անցած ճանապարհն է, իսկ t-ն՝ ծախսված ժամանակը:"
+        },
+        {
+            question: "Ի՞նչ է արտահայտում արագացումը (a):",
+            options: [
+                "Ճանապարհի փոփոխությունը",
+                "Արագության փոփոխման արագությունը",
+                "Մարմնի զանգվածը",
+                "Ուժի ազդեցությունը"
+            ],
+            correct: 1,
+            hint: "Մտածեք այն մասին, թե ինչպես է փոխվում մեքենայի արագությունը սեղմելիս:",
+            explanation: "Արագացումը (a) ցույց է տալիս, թե որքանով է փոխվում մարմնի արագությունը միավոր ժամանակում (a = Δv / t):"
+        },
+        {
+            question: "Ո՞րն է ազատ անկման արագացման (g) մոտավոր արժեքը Երկրի վրա:",
+            options: ["5 մ/վ²", "9.8 մ/վ²", "15 մ/վ²", "1.6 մ/վ²"],
+            correct: 1,
+            hint: "Այս հաստատունը շատ մոտ է 10-ին:",
+            explanation: "Երկրի մակերևույթին մոտ ազատ անկման արագացումը g ≈ 9.8 մ/վ² է (խնդիրներում հաճախ ընդունվում է 10 մ/վ²):"
+        }
+    ];
+
+    let currentIdx = 0;
+
+    function loadQuestion() {
+        const q = questions[currentIdx];
+        document.getElementById('current-q').textContent = currentIdx + 1;
+        document.getElementById('total-q').textContent = questions.length;
+        document.getElementById('question-text').textContent = q.question;
+        
+        const optionsGeo = document.getElementById('options-container');
+        optionsGeo.innerHTML = '';
+
+        document.getElementById('explanation-box').style.display = 'none';
+        document.getElementById('next-btn').style.display = 'none';
+
+        q.options.forEach((opt, idx) => {
+            const btn = document.createElement('button');
+            btn.className = 'option-btn';
+            btn.textContent = `${String.fromCharCode(65 + idx)}) ${opt}`;
+            btn.onclick = () => checkAnswer(idx);
+            optionsGeo.appendChild(btn);
+        });
+    }
+
+    function checkAnswer(selectedIdx) {
+        const q = questions[currentIdx];
+        const buttons = document.querySelectorAll('.option-btn');
+
+        buttons.forEach(btn => btn.disabled = true);
+
+        if (selectedIdx === q.correct) {
+            buttons[selectedIdx].classList.add('correct');
+        } else {
+            buttons[selectedIdx].classList.add('wrong');
+            buttons[q.correct].classList.add('correct');
+        }
+
+        document.getElementById('explanation-text').textContent = q.explanation;
+        document.getElementById('explanation-box').style.display = 'block';
+        document.getElementById('next-btn').style.display = 'block';
+    }
+
+    function nextQuestion() {
+        currentIdx++;
+        if (currentIdx < questions.length) {
+            loadQuestion();
+        } else {
+            document.getElementById('question-text').textContent = "🎉 Շնորհավորում ենք, դուք ավարտեցիք խաղը:";
+            document.getElementById('options-container').innerHTML = '';
+            document.getElementById('explanation-box').style.display = 'none';
+            document.getElementById('next-btn').style.display = 'none';
+        }
+    }
+
+    function useHint() {
+        alert("💡 Հուշում. " + questions[currentIdx].hint);
+        document.getElementById('life-hint').disabled = true;
+    }
+
+    function use5050() {
+        const q = questions[currentIdx];
+        const buttons = document.querySelectorAll('.option-btn');
+        let removed = 0;
+
+        buttons.forEach((btn, idx) => {
+            if (idx !== q.correct && removed < 2) {
+                btn.style.visibility = 'hidden';
+                removed++;
+            }
+        });
+        document.getElementById('life-5050').disabled = true;
+    }
+
+    loadQuestion();
+</script>
+
+</body>
+</html>

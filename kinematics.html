@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Կինեմատիկա - PhysicsEdu Hub</title>
+    <!-- CSS Ոճային Ֆայլ -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <h2>PhysicsEdu Hub</h2>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Գլխավոր</a></li>
+                <li><a href="topics.html">Բաժիններ</a></li>
+                <li><a href="mechanics.html">Մեխանիկա</a></li>
+                <li><a href="kinematics.html" class="active">Կինեմատիկա</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="content-container">
+        
+        <a href="mechanics.html" class="back-link">← Վերադառնալ Մեխանիկա բաժին</a>
+
+        <div class="topic-hero">
+            <h1>🏎️ ԿԻՆԵՄԱՏԻԿԱ</h1>
+            <p>Դասախոսություն, Աղյուսակային Ամփոփում և Փորձարարական Օրինակներ</p>
+        </div>
+
+        <!-- 1. ՆԵՐԱԾՈՒԹՅՈՒՆ ԵՎ ՀԻՄՆԱԿԱՆ ՀԱՍԿԱՑՈՒԹՅՈՒՆՆԵՐ (ԱՂՅՈՒՍԱԿՈՎ) -->
+        <section class="info-card">
+            <h2>1. Հիմնական Հասկացություններ</h2>
+            <p><strong>Կինեմատիկան</strong> մեխանիկայի այն բաժինն է, որն ուսումնասիրում է մարմինների շարժումը տարածության և ժամանակի մեջ՝ <em>առանց դրա պատճառները (ուժերը) հաշվի առնելու</em>։</p>
+            
+            <div class="table-responsive">
+                <table class="physics-table">
+                    <thead>
+                        <tr>
+                            <th>Մեծություն / Հասկացություն</th>
+                            <th>Սահմանում</th>
+                            <th>Տեսակը / Միավորը</th>
+                            <th>Վիզուալ Գծապատկեր</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Ճանապարհ (l)</strong></td>
+                            <td>Հետագծի ընդհանուր երկարությունն է։</td>
+                            <td>Սկալյար (մ)</td>
+                            <td rowspan="2" class="svg-cell">
+                                <svg viewBox="0 0 180 70" class="mini-svg">
+                                    <path d="M 10 50 Q 70 10, 170 50" fill="none" stroke="#ef4444" stroke-width="3" stroke-dasharray="4,4"/>
+                                    <line x1="10" y1="50" x2="170" y2="50" stroke="#2563eb" stroke-width="3"/>
+                                    <circle cx="10" cy="50" r="4" fill="#000"/>
+                                    <circle cx="170" cy="50" r="4" fill="#000"/>
+                                    <text x="75" y="22" fill="#ef4444" font-size="10" font-weight="bold">l (Ճանապարհ)</text>
+                                    <text x="65" y="65" fill="#2563eb" font-size="10" font-weight="bold">S (Տեղափոխություն)</text>
+                                </svg>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Տեղափոխություն (S)</strong></td>
+                            <td>Սկզբնակետն ու վերջնակետը միացնող ուղղորդված հատվածն է։</td>
+                            <td>Վեկտորական (մ)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Արագություն (v)</strong></td>
+                            <td>Միավոր ժամանակում կատարած տեղափոխությունն է։</td>
+                            <td>Վեկտորական (մ/վ)</td>
+                            <td class="icon-cell">🚗 💨 ──►</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Արագացում (a)</strong></td>
+                            <td>Արագության փոփոխման տեմպն է 1 վայրկյանում։</td>
+                            <td>Վեկտորական (մ/վ²)</td>
+                            <td class="icon-cell">🏎️ 💨💨 ──►</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 2. ՇԱՐԺՄԱՆ ՏԵՍԱԿՆԵՐԻ ՄԵԾ ԱՂՅՈՒՍԱԿ -->
+        <section class="info-card">
+            <h2>2. Շարժման Տեսակները և Բանաձևերը</h2>
+            
+            <div class="table-responsive">
+                <table class="physics-table highlight-table">
+                    <thead>
+                        <tr>
+                            <th>Շարժման Տեսակը</th>
+                            <th>Պայման / Բնութագիր</th>
+                            <th>Հիմնական Բանաձևեր</th>
+                            <th>Գրաֆիկական Պատկեր</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Հավասարաչափ ուղղագիծ</strong></td>
+                            <td>Արագությունը հաստատուն է<br><mark>v = const</mark> (a = 0)</td>
+                            <td>
+                                <b>v = S / t</b><br>
+                                <b>S = v · t</b><br>
+                                <b>x = x₀ + v · t</b>
+                            </td>
+                            <td class="svg-cell">
+                                <svg viewBox="0 0 70 45" class="graph-svg">
+                                    <line x1="5" y1="40" x2="65" y2="40" stroke="#000" stroke-width="1.5"/>
+                                    <line x1="5" y1="40" x2="5" y2="5" stroke="#000" stroke-width="1.5"/>
+                                    <line x1="5" y1="20" x2="65" y2="20" stroke="#2563eb" stroke-width="2.5"/>
+                                    <text x="50" y="35" font-size="8">t</text>
+                                    <text x="8" y="12" font-size="8">v</text>
+                                </svg>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Հավասարաչափ Արագացող</strong></td>
+                            <td>Արագությունն աճում է հավասարաչափ<br><mark>a > 0</mark></td>
+                            <td>
+                                <b>a = (v - v₀) / t</b><br>
+                                <b>v = v₀ + a · t</b><br>
+                                <b>S = v₀ · t + (a · t²) / 2</b><br>
+                                <b>v² - v₀² = 2 · a · S</b>
+                            </td>
+                            <td class="svg-cell">
+                                <svg viewBox="0 0 70 45" class="graph-svg">
+                                    <line x1="5" y1="40" x2="65" y2="40" stroke="#000" stroke-width="1.5"/>
+                                    <line x1="5" y1="40" x2="5" y2="5" stroke="#000" stroke-width="1.5"/>
+                                    <line x1="5" y1="40" x2="65" y2="10" stroke="#ef4444" stroke-width="2.5"/>
+                                    <text x="50" y="35" font-size="8">t</text>
+                                    <text x="8" y="12" font-size="8">v</text>
+                                </svg>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ազատ Անկում</strong></td>
+                            <td>Շարժում Ծանրության ուժի տակ<br><mark>g ≈ 9.8 մ/վ²</mark></td>
+                            <td>
+                                <b>v = g · t</b><br>
+                                <b>h = (g · t²) / 2</b><br>
+                                <b>v = √(2 · g · h)</b>
+                            </td>
+                            <td class="icon-cell vertical-anim">
+                                ⚽<br>⬇️ g
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Շրջանագծային Շարժում</strong></td>
+                            <td>Շարժում R շառավղով, կենտրոնաձիգ արագացմամբ</td>
+                            <td>
+                                <b>T = t / N</b>, <b>n = 1 / T</b><br>
+                                <b>v = (2 · π · R) / T</b><br>
+                                <b>a_կ = v² / R</b>
+                            </td>
+                            <td class="svg-cell">
+                                <svg viewBox="0 0 50 50" class="mini-svg">
+                                    <circle cx="25" cy="25" r="18" fill="none" stroke="#64748b" stroke-dasharray="3,3"/>
+                                    <circle cx="43" cy="25" r="4" fill="#ef4444"/>
+                                    <line x1="43" y1="25" x2="25" y2="25" stroke="#0284c7" stroke-width="1.5"/>
+                                    <text x="30" y="22" font-size="7" fill="#0284c7">R</text>
+                                </svg>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 3. ՓՈՐՁԱՐԱՐԱԿԱՆ ՕՐԻՆԱԿՆԵՐ ԵՎ ԿԻՐԱՌՈՒԹՅՈՒՆ -->
+        <section class="info-card">
+            <h2>3. Փորձարարական Օրինակներ և Կիրառություն</h2>
+            
+            <div class="experiments-grid">
+                
+                <div class="exp-card">
+                    <div class="exp-icon">🛑</div>
+                    <h3>Ավտոմեքենայի Արգելակում</h3>
+                    <p><strong>Երևույթ՝</strong> Դանդաղող շարժում (a < 0):</p>
+                    <p>Արգելակման ճանապարհը հաշվարկվում է <b>S = v₀² / (2a)</b> բանաձևով։ Եթե արագությունը կրկնապատկվի, արգելակման ճանապարհը կմեծանա <strong>4 անգամ</strong>։</p>
+                </div>
+
+                <div class="exp-card">
+                    <div class="exp-icon">🪶 ⚽</div>
+                    <h3>Գալիլեյի Փորձը Վակուումում</h3>
+                    <p><strong>Երևույթ՝</strong> Ազատ անկում:</p>
+                    <p>Օդազուրկ խողովակում թռչունի փետուրն ու երկաթյա գնդակը ցած են ընկնում <strong>ճիշտ նույն ժամանակում</strong>, քանի որ երկուսի արագացումն էլ <b>g ≈ 9.8 մ/վ²</b> է։</p>
+                </div>
+
+                <div class="exp-card">
+                    <div class="exp-icon">🏎️ 🔄</div>
+                    <h3>Շրջադարձ Ճանապարհին</h3>
+                    <p><strong>Երևույթ՝</strong> Կենտրոնաձիգ արագացում:</p>
+                    <p>Շրջադարձի պահին մեքենայի վրա ազդում է <b>a_կ = v² / R</b> արագացումը։ Փոքր շառավղով (R) կամ բարձր արագությամբ (v) շրջադարձը մեծացնում է սահելու ռիսկը։</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 4. ԻՆՏԵՐԱԿՏԻՎ ՀԱՇՎԻՉ -->
+        <div class="interactive-calc-box">
+            <h3>🧪 Ինքնուրույն Փորձարկում․ Ճանապարհի և Արագության Հաշվիչ</h3>
+            <p>Մուտքագրեք տվյալները և տեսեք, թե ինչպես է հաշվարկվում արագությունը կամ ճանապարհը․</p>
+            
+            <div class="calc-inputs">
+                <div class="input-group">
+                    <label for="distance">Ճանապարհ (S, մետր)․</label>
+                    <input type="number" id="distance" placeholder="օր․ 100">
+                </div>
+                <div class="input-group">
+                    <label for="time">Ժամանակ (t, վայրկյան)․</label>
+                    <input type="number" id="time" placeholder="օր․ 10">
+                </div>
+                <button onclick="calculateSpeed()" class="calc-btn">Հաշվել Արագությունը</button>
+            </div>
+
+            <div id="calc-result" class="result-box">
+                Արդյունքը կհայտնվի այստեղ...
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>© 2026 | PhysicsEdu Hub - Ֆիզիկայի Ուսուցանող Վեբ Հարթակ</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
